@@ -3,9 +3,24 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/nhx92nqyrfq9su7y?svg=true)](https://ci.appveyor.com/project/iikira/baidupcs-go)
 [![GoDoc](https://godoc.org/github.com/iikira/BaiduPCS-Go?status.svg)](https://godoc.org/github.com/iikira/BaiduPCS-Go)
 
+
 仿 Linux shell 文件处理命令的百度网盘命令行客户端.
 
 This project was largely inspired by [GangZhuo/BaiduPCS](https://github.com/GangZhuo/BaiduPCS)
+
+## Fork说明
+
+原作者停止不再开发，剩下的需求也不会再实现了
+但我特别需要加密分享的功能，不得不自己改了一个
+我并不会Go，现学的如何编译和简单语法
+所以也不知道怎么改命令行的开关传递
+现在是简单粗暴的打印了一下密码
+如果有人把开关也做了，请一定告诉我
+
+谢谢原作者提供了那么好的项目，正如原项目里作者终止维护通告贴里很多人回复的那样
+我并不需要什么破解、加速下载之类的
+但这个项目让我们可以在linux的命令行下操作百度网盘成为可能，才能完全一些服务的自动化
+谢谢iikira所做的一切
 
 ## 解决错误代码4, No permission to do this operation
 ```

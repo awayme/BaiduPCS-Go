@@ -13,6 +13,8 @@ import (
 	"strconv"
 	"strings"
 	"unsafe"
+    "time"
+    "math/rand"
 )
 
 func handleRespClose(resp *http.Response) error {
@@ -679,9 +681,17 @@ func (pcs *BaiduPCS) PrepareSharePSet(paths []string, period int) (dataReadClose
 	errInfo := pcserror.NewPanErrorInfo(OperationShareSet)
 	baiduPCSVerbose.Infof("%s URL: %s\n", OperationShareSet, pcsURL)
 
+    rand.Seed(time.Now().UnixNano())
+    pwd := fmt.Sprintf("%04d", rand.Intn(9999))
+    fmt.Println("PWD:", pwd)
+    // fmt.Printf("PWD:%v", pwd)
+
 	resp, err := pcs.client.Req("POST", pcsURL.String(), map[string]string{
 		"path_list":    mergeStringList(paths...),
-		"schannel":     "0",
+		//"schannel":     "0",
+		"schannel":     "4", //patch
+		"public":     "0", //patch
+		"pwd":     pwd, //patch
 		"channel_list": "[]",
 		"period":       strconv.Itoa(period),
 	}, map[string]string{
